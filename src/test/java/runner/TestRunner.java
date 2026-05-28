@@ -41,11 +41,11 @@ public class TestRunner {
     public static void generateReport() {
         try {
             System.out.println("Generando reporte HTML de Allure...");
-            ProcessBuilder builder = new ProcessBuilder("cmd.exe", "/c", "npx -y allure-commandline generate allure-results --clean -o allure-report");
+            ProcessBuilder builder = new ProcessBuilder("cmd.exe", "/c", "npx -y allure-commandline generate test-output/allure-results --clean -o test-output/allure-report");
             builder.redirectErrorStream(true);
             Process process = builder.start();
             process.waitFor();
-            System.out.println("Reporte de Allure generado con éxito en la carpeta 'allure-report'.");
+            System.out.println("Reporte de Allure generado con éxito en la carpeta 'test-output/allure-report'.");
         } catch (IOException | InterruptedException e) {
             System.err.println("Error al generar el reporte de Allure: " + e.getMessage());
             e.printStackTrace();

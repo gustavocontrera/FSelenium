@@ -27,3 +27,7 @@ out/
 screenshots/
 test-output/
 test-output-custom/
+
+# Allure root folders (just in case they are generated at the root)
+allure-results/
+allure-report/
