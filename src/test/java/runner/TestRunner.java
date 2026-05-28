@@ -2,7 +2,9 @@ package runner;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
+import org.junit.AfterClass;
 import org.junit.runner.RunWith;
+import java.io.IOException;
 
 /**
  * Ejecutor de pruebas (Runner) para Cucumber BDD utilizando JUnit 4.
@@ -33,5 +35,20 @@ import org.junit.runner.RunWith;
         tags = "@Navigation"
 )
 public class TestRunner {
-    // Clase controladora vacía para ejecutar los tests desde IDE/Maven
+    // Clase controladora para ejecutar los tests desde IDE/Maven
+
+    @AfterClass
+    public static void generateReport() {
+        try {
+            System.out.println("Generando reporte HTML de Allure...");
+            ProcessBuilder builder = new ProcessBuilder("cmd.exe", "/c", "npx -y allure-commandline generate allure-results --clean -o allure-report");
+            builder.redirectErrorStream(true);
+            Process process = builder.start();
+            process.waitFor();
+            System.out.println("Reporte de Allure generado con éxito en la carpeta 'allure-report'.");
+        } catch (IOException | InterruptedException e) {
+            System.err.println("Error al generar el reporte de Allure: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
 }
