@@ -1,0 +1,29 @@
+# Target/build outputs
+target/
+out/
+*.class
+
+# IntelliJ IDEA settings
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Eclipse settings
+.metadata
+.classpath
+.project
+.settings/
+
+# VS Code settings
+.vscode/
+
+# Temporary files and logs
+*.log
+*.tmp
+*.bak
+
+# Driver and report folder outputs
+screenshots/
+test-output/
+test-output-custom/
