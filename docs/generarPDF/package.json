@@ -1,0 +1,12 @@
+{
+  "name": "fseleniumia-docs-pdf",
+  "version": "1.0.0",
+  "description": "Herramienta para concatenar manuales MD y generar un PDF maestro",
+  "main": "generar_pdf.js",
+  "scripts": {
+    "build:pdf": "node generar_pdf.js"
+  },
+  "dependencies": {
+    "md-to-pdf": "^5.2.4"
+  }
+}
