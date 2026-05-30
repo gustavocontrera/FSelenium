@@ -1,15 +1,15 @@
-# Curso Intensivo Paso a Paso: Selenium, Java y Cucumber BDD
+﻿# Curso Intensivo Paso a Paso: Selenium, Java y Cucumber BDD
 
 Bienvenido al curso definitivo de automatización de pruebas integradas. Este manual está diseñado como un libro de texto guiado. Al finalizar, serás capaz de construir arquitecturas de QA sólidas y escalables.
 
-> 📚 **Pre-requisito:** Antes de dominar la arquitectura, debes saber cómo interactuar con el HTML. Por favor, lee de forma obligatoria el [Manual de Localizadores](file:///d:/DRIVE/15-WORKSPACE%20-%20ESTUDIO%20-%20DATOS/IdeaProjects/FSeleniumIA/docs/manual-localizadores.md) adjunto en este framework.
+> 📚 **Pre-requisito:** Antes de dominar la arquitectura, debes saber cómo interactuar con el HTML. Por favor, lee de forma obligatoria el Manual de Localizadores adjunto en este framework.
 
 ---
 
 ## Módulo 1: Fundamentos y Configuración Inicial (Paso a Paso)
 
 ### 1.1 Entendiendo Selenium WebDriver
-Selenium no "testea" nativamente. Selenium simplemente provee una API (Application Programming Interface) que se comunica directamente con el navegador utilizando el **Protocolo W3C WebDriver**. Cuando en Java escribimos `.click()`, Selenium traduce eso en un comando HTTP estandarizado que el navegador entiende y ejecuta.
+Selenium no "testea" nativamente. Selenium simplemente provee una API que se comunica directamente con el navegador utilizando el **Protocolo W3C WebDriver**. Cuando en Java escribimos `.click()`, Selenium traduce eso en un comando HTTP estandarizado que el navegador entiende y ejecuta.
 
 ### 1.2 Paso 1: Configurar el proyecto (Maven)
 Maven es el corazón de la gestión en Java. En lugar de descargar librerías manualmente, usamos el archivo `pom.xml`.
@@ -68,6 +68,8 @@ public class HolaMundoSelenium {
 }
 ```
 
+<br><p align="right"><a href="#indice-general">⬆️ Volver al Índice General</a></p>
+
 ---
 
 ## Módulo 2: Cucumber y el Diseño Basado en Comportamientos (BDD)
@@ -107,6 +109,8 @@ public class LoginSteps {
     }
 }
 ```
+
+<br><p align="right"><a href="#indice-general">⬆️ Volver al Índice General</a></p>
 
 ---
 
@@ -151,10 +155,10 @@ public class PaginaLogin {
 ```
 
 **Paso 2: Herencia (El nivel Senior)**
-En nuestro framework `FSeleniumIA`, no queremos inyectar el `WebDriver` y llamar a `driver.findElement` mil veces. Creamos una **`BasePage`** que hace el trabajo sucio.
+En nuestro framework `FSelenium`, no queremos inyectar el `WebDriver` y llamar a `driver.findElement` mil veces. Creamos una **`BasePage`** que hace el trabajo sucio.
 
 ```java
-// Así luce en FSeleniumIA (Elegante y Limpio)
+// Así luce en FSelenium (Elegante y Limpio)
 public class PaginaLogin extends BasePage {
     private By emailInput = By.id("user_email");
     
@@ -164,6 +168,8 @@ public class PaginaLogin extends BasePage {
     }
 }
 ```
+
+<br><p align="right"><a href="#indice-general">⬆️ Volver al Índice General</a></p>
 
 ---
 
@@ -204,6 +210,8 @@ public void testLogin(String user, String pass) {
     login.iniciarSesion(user, pass);
 }
 ```
+
+<br><p align="right"><a href="#indice-general">⬆️ Volver al Índice General</a></p>
 
 ---
 
@@ -258,6 +266,8 @@ WebElement menu = driver.findElement(By.id("menu-desplegable"));
 actions.moveToElement(menu).perform();
 ```
 
+<br><p align="right"><a href="#indice-general">⬆️ Volver al Índice General</a></p>
+
 ---
 
 ## Módulo 6: Estándares Arquitectónicos de un QA Senior
@@ -265,6 +275,8 @@ actions.moveToElement(menu).perform();
 1. **Gestión de Hilos (Thread-Safety):** Si corres pruebas en paralelo, el hilo 1 y el hilo 2 chocarán si comparten una variable `static WebDriver driver`. Usamos `ThreadLocal<WebDriver>` en nuestra clase `DriverManager` para que cada hilo tenga su propia copia del navegador, aislada de las demás.
 2. **Abstracción Total de URLs:** No debe haber ni un solo `http://...` en tu código Java. Se lee todo dinámicamente usando una clase custom como `ConfigReader.java` que extrae los datos de `config.properties`.
 3. **Manejo de Errores Silencioso:** En los *Hooks* de Cucumber, si un escenario falla (`scenario.isFailed()`), inyectamos un bloque `try-catch` que toma un *Screenshot* nativo en bytes y lo pega en el reporte final automáticamente, sin detener abruptamente el flujo de limpieza.
+
+<br><p align="right"><a href="#indice-general">⬆️ Volver al Índice General</a></p>
 
 ---
 
@@ -297,3 +309,5 @@ Cuando 100 pruebas demoran demasiado en correr en una PC, usamos Grid. Levantas 
 
 ### Apéndice F: El Patrón Factory
 Para escalar el soporte de navegadores (Chrome, Edge, Firefox, Safari, Appium Mobile), en lugar de tener un `switch-case` interminable, se aplica el Patrón de Diseño Factory. Se crea una interfaz `BrowserFactory` y múltiples implementaciones (ej: `ChromeManager`, `FirefoxManager`). El framework decide en tiempo de ejecución qué manejador instanciar basándose en las variables de entorno.
+
+<br><p align="right"><a href="#indice-general">⬆️ Volver al Índice General</a></p>

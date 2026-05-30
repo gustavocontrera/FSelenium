@@ -1,4 +1,4 @@
-# Skill: Estándares de QA Automation en FSeleniumIA
+﻿# Skill: Estándares de QA Automation en FSelenium
 
 ## Propósito
 Esta habilidad define los estándares y directrices técnicas obligatorias para el mantenimiento, extensión y diseño de pruebas automatizadas en este framework (Selenium, Java, Cucumber y TestNG). Su objetivo es garantizar la mantenibilidad, escalabilidad y reusabilidad del framework.
