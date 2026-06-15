@@ -9,11 +9,9 @@ import java.io.IOException;
 /**
  * Ejecutor de pruebas (Runner) para Cucumber BDD utilizando JUnit 4.
  * Mapea los archivos de características (features) con sus respectivas definiciones de pasos (glue).
- * 
  * NOTA DE ARQUITECTURA: Ya no es necesario un método @AfterClass para cerrar el navegador 
  * de forma global, dado que cada escenario gestiona su ciclo de vida y limpieza de manera 
  * aislada y segura en la clase Hooks (@Before y @After).
- * 
  * Se ha integrado Allure Cucumber para generar reportes dinámicos de ejecución de forma automática.
  * 
  * @author QA Automation Senior
@@ -32,7 +30,7 @@ import java.io.IOException;
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm" // Genera reportes para Allure
         },
         // Etiquetas (tags) a ejecutar por defecto
-        tags = "@Navigation"
+        tags = "@Courses"
 )
 public class TestRunner {
     // Clase controladora para ejecutar los tests desde IDE/Maven
