@@ -1,0 +1,13 @@
+<suite name="Youtube and Apple Suite Tests">
+
+    <listeners>
+        <listener class-name="varios2.clase110.ejemplo5.SuiteListeners"></listener>
+    </listeners>
+
+    <test name="Test 1">
+        <classes>
+            <class name = "varios2.clase110.ejemplo5.YoutubeTest"></class>
+            <class name = "varios2.clase110.ejemplo4.AppleTest"></class>
+        </classes>
+    </test>
+</suite>

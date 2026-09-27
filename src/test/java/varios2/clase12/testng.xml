@@ -1,0 +1,22 @@
+<suite name ="Clase 12">
+
+    <parameter name="tagName" value= "h2"></parameter>
+    <parameter name="username" value="testing@qa.com"></parameter>
+    <parameter name="password" value="holamundo123"></parameter>
+
+    <groups>
+        <run>
+            <include name="successTest"></include>
+            <include name="failureTest"></include>
+        </run>
+    </groups>
+
+    <test name = "Ejercicios Testng">
+        <classes>
+            <class name="varios2.clase12.NotationsTest"></class>
+<!--            <class name="clase12.SpotifyWithTestngTest"></class>-->
+<!--            <class name="clase12.TestngSalesforce"></class>-->
+        </classes>
+    </test>
+
+</suite>

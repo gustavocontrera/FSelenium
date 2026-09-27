@@ -1,0 +1,12 @@
+<suite name="MyTests Tests">
+
+    <listeners>
+        <listener class-name="varios2.clase110.ejemplo6.TestListener"></listener>
+    </listeners>
+
+    <test name="Test 1">
+        <classes>
+            <class name = "varios2.clase110.ejemplo6.MyTests"></class>
+        </classes>
+    </test>
+</suite>
