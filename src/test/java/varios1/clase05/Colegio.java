@@ -7,7 +7,7 @@ public class Colegio {
         //Utils.saludoInicial();
         //Utils.saludoFinal();
 
-        clase05.Utils utilities = new Utils();
+        Utils utilities = new Utils();
 
         utilities.saludoInicial();
 
